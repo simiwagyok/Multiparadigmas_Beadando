@@ -2,7 +2,6 @@ from functools import reduce
 from typing import List
 from .schemas import AutoJobResponse
 
-# Funkcionális paradigma
 def szamol_bevetel(munkak: List[AutoJobResponse]) -> float:
     kesz_munkak = filter(lambda x: x.statusz == "Kész", munkak)
     arak = map(lambda x: x.ar, kesz_munkak)
