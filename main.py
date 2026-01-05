@@ -1,31 +1,36 @@
+import threading
 import uvicorn
 import os
-import time
-from threading import Thread
+import sys
+from time import sleep
 
-# 1. Backend indítása
-# Mivel a te fájlodban 'app' a változó neve, ez így tökéletes:
+# Segédfüggvény az abszolút útvonalhoz
+def get_path(filename):
+    return os.path.join(os.path.dirname(__file__), filename)
+
 def run_backend():
-    print("🚀 Backend indítása (FastAPI)...")
-    # A "backend.main:app" azt jelenti:
-    # backend mappa -> main.py fájl -> app változó
-    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)
+    # FONTOS: reload=False, mert szálban vagyunk!
+    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=False)
 
-# 2. Frontend indítása
 def run_frontend():
-    time.sleep(2) # Várunk picit, hogy a backend betöltsön
-    print("🎨 Frontend indítása (Streamlit)...")
-    # Feltételezve, hogy a frontend kódod a 'frontend' mappában van 'main.py' néven
-    # Ha máshogy hívják (pl. app.py), írd át a végén a nevet!
-    os.system("streamlit run frontend/main.py")
+    # Kis várakozás, hogy a backend biztosan elinduljon előbb
+    sleep(2)
+    
+    # Abszolút útvonal a frontend fájlhoz
+    frontend_script = get_path(os.path.join("frontend", "main.py"))
+    
+    # Ellenőrizzük, létezik-e a fájl
+    if not os.path.exists(frontend_script):
+        print(f"HIBA: Nem található a fájl itt: {frontend_script}")
+        return
+
+    # Streamlit indítása parancssori hívással
+    os.system(f"streamlit run {frontend_script}")
 
 if __name__ == "__main__":
-    # Két szálon indítjuk a rendszert
-    t1 = Thread(target=run_backend)
-    t2 = Thread(target=run_frontend)
+    # Backend indítása külön szálon
+    backend_thread = threading.Thread(target=run_backend)
+    backend_thread.start()
 
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
+    # Frontend indítása (ez futhat a fő szálon vagy külön is)
+    run_frontend()
