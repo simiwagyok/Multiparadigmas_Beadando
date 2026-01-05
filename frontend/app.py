@@ -5,7 +5,7 @@ import os
 import re
 
 # Ha van környezeti változó (Deploy), azt használja, ha nincs, a localhostot
-API_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
+API_URL = os.getenv("BACKEND_URL", "https://multiparadigmas-beadando.onrender.com")
 
 st.set_page_config(page_title="CleanCar", page_icon="🚗")
 st.title("🚗 CleanCar Vezérlő")
