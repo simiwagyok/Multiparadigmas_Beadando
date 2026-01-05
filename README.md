@@ -25,6 +25,7 @@ Procedurális: Itt indul a rendszer és a háttérfolyamat is itt fut.
 
 1. Git klónozása:
    git clone https://github.com/simiwagyok/Multiparadigmas_Beadando.git
+   A mappát cmdben meg kell nyitni majd code . Ezután a VS Code megnyílik, új terminált kell nyitni.
 
 Majd a mappába való belépés
 cd CleanCar_Beadando
@@ -41,11 +42,11 @@ venv\Scripts\activate
 4. Terminal:
    python main.py (ez elindítja a frontendet és a backendet)
 
-**Frontend külön elindítása:**
+**Frontend külön elindítása Terminalban:**
 cd .\CleanCar_Beadando\frontend\
  streamlit run app.py
 
-**Backend külön elindítása:**
+**Backend külön elindítása Terminalban:**
 cd .\CleanCar_Beadando\
  uvicorn backend.main:app --reload
 
