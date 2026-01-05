@@ -52,4 +52,4 @@ cd .\CleanCar_Beadando\
 **Futtatás felhőben:**
 
 - Backend link: https://multiparadigmas-beadando.onrender.com
-- Frontend link: https://multiparadigmasbeadando-hbpj8v7r9g34ndpv3pcg5c.streamlit.app/
+- Frontend link: https://multiparadigmasbeadando.streamlit.app/
