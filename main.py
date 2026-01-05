@@ -17,7 +17,7 @@ def run_frontend():
     sleep(2)
     
     # Abszolút útvonal a frontend fájlhoz
-    frontend_script = get_path(os.path.join("frontend", "main.py"))
+    frontend_script = get_path(os.path.join("frontend", "app.py"))
     
     # Ellenőrizzük, létezik-e a fájl
     if not os.path.exists(frontend_script):
