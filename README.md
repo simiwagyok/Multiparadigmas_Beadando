@@ -1,51 +1,47 @@
-# CleanCar Tracker - Multiparadigmás Beadandó
+Multiparadigmás beadandó:
 
-Ez a projekt egy mikroszerviz-architektúrájú autókozmetikai nyilvántartó rendszer. A rendszer lehetővé teszi autók felvételét, és a mosási folyamat (Várakozás -> Mosás -> Kész) manuális vezérlését egy admin felületen keresztül.
+Egy Autókozmetikai rendszert írtam meg, melyben egy autónak lehet kiválasztani, hogy mit csináljunk vele.
 
-## Architektúra
-A rendszer három fő komponensből áll:
-1. **Backend (FastAPI):** REST API, amely kezeli az üzleti logikát és az adatbázis műveleteket.
-2. **Frontend (Streamlit):** Webes felület az ügyfeleknek (keresés) és az adminisztrátornak (vezérlés).
-3. **Adatbázis (SQLite):** Az adatok tartós tárolása.
+Jellemzői:
 
-## Felhasznált Paradigmák
-A projekt bemutatja a Python multiparadigmás képességeit:
-* **Objektumorientált (OOP):** Az adatbázis modellek (`models.py`) osztályként vannak definiálva, öröklődést használva.
-* **Funkcionális:** A statisztikai számítások (`logic.py`) tisztán funkcionális módon, `map`, `filter` és `reduce` függvényekkel történnek.
-* **Procedurális:** A rendszer indítása (`main.py`) és a háttérfolyamatok (`worker.py`) imperatív stílusban íródtak.
+- 3 féle takarítási mód van.
+- befolyt összeg megjelenítése
+- bemenet ellenőrzése
+- felhasználó tájékoztatása arról, hogy éppen hol tart az autó takarítása
 
-## Telepítés és Futtatás (Lokálisan)
+3 részből áll a program:
 
-1. **Klónozás:**
-   ```bash
-   git clone [https://github.com/FELHASZNALONEV/CleanCar_Beadando.git](https://github.com/FELHASZNALONEV/CleanCar_Beadando.git)
-   cd CleanCar_Beadando
-   ```
+- Backend (FastAPI): Rest api, ami kezeli az adatbázist és az ütleti logikát.
+- Frontend (Streamlit): Itt lehet kereseni a sima felhasználónak és az adminnak lehet továbbléptetni az állapotot.
+- Adatbázis (SQLite): Az adatok tárolása
 
-2. **Környezet beállítása:**
-   ```bash
+Paradigmák:
+
+Objektumorientált (OOP): Az adatbázis modellek osztályként vannak definiálva (models.py) és öröklődést használnak
+Funkcionális: Statisztikai számítások(logic.py), függvényekkel.
+Procedurális: Itt indul a rendszer és a háttérfolyamat is itt fut.
+
+Telepítés és futtatás saját gépen:
+
+1. Git klónozása:
+   git clone https://github.com/simiwagyok/Multiparadigmas_Beadando.git
+
+Majd a mappába való belépés
+cd CleanCar_Beadando
+
+2. Virtuális környezet létrehozása:
    python -m venv venv
-   # Windows:
-   venv\Scripts\activate
-   # Linux/Mac:
-   source venv/bin/activate
-   ```
 
-3. **Függőségek telepítése:**
-   ```bash
+Majd aktiválása:
+venv\Scripts\activate
+
+3. Függőségek telepítése:
    pip install -r requirements.txt
-   ```
 
-4. **Indítás:**
-   A teljes rendszer (Backend + Frontend) egyetlen paranccsal indítható:
-   ```bash
-   python main.py
-   ```
-   *Vagy használhatja a mellékelt `start.sh` (Linux) vagy `start.bat` (Windows) fájlokat.*
+4. Terminal:
+   python main.py (ez elindítja a frontendet és a backendet)
 
-## Deploy (Felhő)
-* **Backend:** Render.com (Web Service)
-* **Frontend:** Streamlit Cloud
+Futtatás felhőben:
 
-## Készítette
-[Saját Neved]
+- Backend link: https://multiparadigmas-beadando.onrender.com
+- Frontend link: https://multiparadigmasbeadando-hbpj8v7r9g34ndpv3pcg5c.streamlit.app/
